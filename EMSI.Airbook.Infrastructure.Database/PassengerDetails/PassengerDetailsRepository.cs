@@ -5,7 +5,7 @@ namespace EMSI.Airbook.Infrastructure.Database.PassengerDetails;
 
 internal class PassengerDetailsRepository : RepositoryBase<UnitOfWork, PassengerDetailsDao, Guid>, IPassengerDetailsRepository
 {
-    protected PassengerDetailsRepository(UnitOfWork context) : base(context)
+    public PassengerDetailsRepository(UnitOfWork context) : base(context)
     {
     }
 }

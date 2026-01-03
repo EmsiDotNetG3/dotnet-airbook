@@ -5,7 +5,7 @@ namespace EMSI.Airbook.Infrastructure.Database.Flights;
 
 internal class FlightsRepository : RepositoryBase<UnitOfWork, FlightDao, Guid>, IFlightsRepository
 {
-    protected FlightsRepository(UnitOfWork context) : base(context)
+    public FlightsRepository(UnitOfWork context) : base(context)
     {
     }
 }
