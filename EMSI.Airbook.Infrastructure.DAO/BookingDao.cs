@@ -1,0 +1,17 @@
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
+namespace EMSI.Airbook.Infrastructure.DAO;
+
+public class BookingDao
+{
+    public Guid Id { get; set; }
+    public DateTime BookingDate { get; set; }
+    public Guid FlightId { get; set; }
+    public Guid PassengerId { get; set; }
+    public FlightDao Flight { get; set; }
+    public PassengerDao Passenger { get; set; }
+    public decimal Price { get; set; }
+    public int SeatNumber { get; set; }
+    public int? NumberOfKg { get; set; }
+    public DateTime? CheckingDate { get; set; }
+    public DateTime? CancellationDate { get; set; }
+}

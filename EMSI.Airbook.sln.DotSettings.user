@@ -1,0 +1,8 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=81821800_002D5f13_002D4fd6_002D984e_002D540520ea908e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="FlightsServiceTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::B96F12C8-37CB-4AB4-8662-7CE6284B9FD5::net10.0::EMSI.Airbook.Tests.FlightsServiceTests&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::B96F12C8-37CB-4AB4-8662-7CE6284B9FD5::net10.0::EMSI.Airbook.Tests.BookingsServiceTests.abc&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::B96F12C8-37CB-4AB4-8662-7CE6284B9FD5::net10.0::EMSI.Airbook.Tests.BookingsServiceTests&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
