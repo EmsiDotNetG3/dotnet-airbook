@@ -1,10 +1,11 @@
+using EMSI.Airbook.Infrastructure.DAO;
 using EMSI.Airbook.Instraftructure.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace EMSI.Airbook.Infrastructure.Database;
 
 public class RepositoryBase<TDbContext, T, TKey> : ISupportsReadRepository<T, TKey>, ISupportsWriteRepository<T, TKey>
-    where T : class
+    where T : EntityBase<TKey>
     where TDbContext : DbContext
     where TKey : struct
 {
@@ -19,7 +20,7 @@ public class RepositoryBase<TDbContext, T, TKey> : ISupportsReadRepository<T, TK
 
     public async Task<T?> GetByIdAsync(TKey id)
     {
-        return await Set.FindAsync(id);
+        return await Set.AsNoTracking().FirstOrDefaultAsync(x => x.Id.Equals(id));
     }
 
     public async Task<IReadOnlyCollection<T>> GetAllAsync()

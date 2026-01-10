@@ -8,4 +8,5 @@ internal class PassengersRepository : RepositoryBase<UnitOfWork, PassengerDao, G
     public PassengersRepository(UnitOfWork context) : base(context)
     {
     }
+    
 }

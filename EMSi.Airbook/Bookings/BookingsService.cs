@@ -24,14 +24,16 @@ internal class BookingsService : IBookingsService
 
     public async Task BookFlightAsync(Booking booking)
     {
-        booking.Id = Guid.NewGuid();
-        booking.BookingDate = DateTime.UtcNow;
-        booking.CancellationDate = null;
-        booking.CheckingDate = null;
-        
-        await CheckPassengerAsync(booking.Passenger.Id);
-        
         var dao = _mapper.Map<BookingDao>(booking);
+        dao.Id = Guid.NewGuid();
+        dao.BookingDate = DateTime.UtcNow;
+        dao.CancellationDate = null;
+        dao.CheckingDate = null;
+        dao.Passenger = null;
+        dao.Flight = null;
+        
+        await CheckPassengerAsync(dao.PassengerId);
+        
         await _bookingsRepository.AddAsync(dao);
         await _unitOfWork.CommitAsync();
     }
