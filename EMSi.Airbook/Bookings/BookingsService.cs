@@ -29,6 +29,8 @@ internal class BookingsService : IBookingsService
         booking.CancellationDate = null;
         booking.CheckingDate = null;
         
+        await CheckPassengerAsync(booking.Passenger.Id);
+        
         var dao = _mapper.Map<BookingDao>(booking);
         await _bookingsRepository.AddAsync(dao);
         await _unitOfWork.CommitAsync();
@@ -49,16 +51,22 @@ internal class BookingsService : IBookingsService
         booking!.CheckingDate = DateTime.UtcNow;
         _bookingsRepository.Update(booking);
         
-        var passenger = await _passengersRepository.GetByIdAsync(passengerId);
-        if(passenger is null)
-            throw new FunctionalException($"Passenger#{passengerId} not found", ExceptionTypeEnum.NotFound);
+        var passenger = await CheckPassengerAsync(passengerId);
 
         passenger.PassportNumber = passportNumber;
         _passengersRepository.Update(passenger);
         
         await _unitOfWork.CommitAsync();
     }
-    
+
+    private async Task<PassengerDao?> CheckPassengerAsync(Guid passengerId)
+    {
+        var passenger = await _passengersRepository.GetByIdAsync(passengerId);
+        if(passenger is null)
+            throw new FunctionalException($"Passenger#{passengerId} not found", ExceptionTypeEnum.NotFound);
+        return passenger;
+    }
+
     private async Task<BookingDao?> GetBookingOrThrowErrorAsync(Guid bookingId, Guid passengerId)
     {
         var booking = await _bookingsRepository.GetByIdAsync(bookingId);
