@@ -5,6 +5,8 @@ using EMSI.Airbook.Infrastructure.Database;
 using Mapster;
 using MapsterMapper;
 
+namespace EMSI.Airbook.WebAPI;
+
 public class Program
 {
     public static async Task Main(string[] args)

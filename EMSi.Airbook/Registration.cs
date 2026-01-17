@@ -1,3 +1,4 @@
+using EMSi.Airbook.Absences;
 using EMSi.Airbook.Bookings;
 using EMSI.Airbook.Domain.Abstractions;
 using EMSi.Airbook.Flights;
@@ -16,6 +17,7 @@ public static class Registration
         services.AddScoped<IPassengersService, PassengersService>();
         services.AddScoped<IFlightsService, FlightsService>();
         services.AddScoped<IBookingsService, BookingsService>();
+        services.AddScoped<IAbsencesService, AbsencesService>();
         
         //mapster
         var config = TypeAdapterConfig.GlobalSettings;

@@ -15,6 +15,14 @@ public class UnitOfWork(DbContextOptions<UnitOfWork> options) : DbContext(option
 
     public async Task<int> CommitAsync()
     {
-        return await base.SaveChangesAsync();
+        try
+        {
+            return await base.SaveChangesAsync();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return 0;
+        }
     }
 }

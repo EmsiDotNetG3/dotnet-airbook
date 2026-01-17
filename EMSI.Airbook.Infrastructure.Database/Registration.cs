@@ -1,4 +1,6 @@
+using EMSI.Airbook.Infrastructure.Database.Absences;
 using EMSI.Airbook.Infrastructure.Database.Bookings;
+using EMSI.Airbook.Infrastructure.Database.Etudiants;
 using EMSI.Airbook.Infrastructure.Database.Flights;
 using EMSI.Airbook.Infrastructure.Database.PassengerDetails;
 using EMSI.Airbook.Infrastructure.Database.Passengers;
@@ -19,6 +21,8 @@ public static class Registration
         services.AddScoped<IPassengerDetailsRepository, PassengerDetailsRepository>();
         services.AddScoped<IBookingsRepository, BookingsRepository>();
         services.AddScoped<IFlightsRepository, FlightsRepository>();
+        services.AddScoped<IAbsencesRepository, AbsencesRepository>();
+        services.AddScoped<IEtudiantsRepository, EtudiantsRepository>();
         
         //Unit of Work
         services.AddScoped<IUnitOfWork, UnitOfWork>(provider => provider.GetRequiredService<UnitOfWork>());
